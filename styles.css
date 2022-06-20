@@ -1,0 +1,212 @@
+:root {
+    font-family: 'Poppins', sans-serif;
+    --highlight: #cb96fa65;
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: rgb(20, 15, 24);
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(#ff0672,#ffd23f);
+    clip-path: circle(30% at right 70%);
+    z-index: 0;
+    
+
+}
+
+circle {
+    content: "";
+    position: fixed;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(#eecda3, #ef629f);
+    clip-path: circle(30% at left 100%);
+    z-index: 0;
+    
+}
+body::after {
+    content: "";
+    position: fixed;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(#5602ff,#ff953f);
+    clip-path: circle(20% at 10% 10%);
+    z-index: 0;
+}
+
+.container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1200px;
+    flex-wrap: wrap;
+    z-index: 1;
+    
+
+}
+
+.container .card:not(.front){
+    position: relative;
+    width: 280px;
+    height: 400px;
+    margin: 30px;
+    box-shadow: 20px 20px 50px #000000;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-top: 2px solid #ffffff50;
+    border-left: 2px solid #ffffff50;
+    backdrop-filter: blur(7px);
+    
+}
+
+.container .card .content {
+    padding: 20px;
+    text-align: center;
+    transition: 0.5s;
+    transform: translateY(100px);
+    opacity: 0;
+
+}
+
+.container .card:hover .content {
+    transform: translateY(0px);
+    opacity: 1;
+}
+
+.container .card .front {
+    color: #ffffff7b;
+    opacity: 100;
+    font-size: 5em;
+    position: absolute;
+    transition-delay: .3s;
+    transition-duration: 1000ms;
+
+    
+
+}
+.container .card:hover .front {
+    position: absolute;
+    color: #ffffff7b;
+    opacity: 0;
+    transition: 200ms;
+    font-size: 4em;
+   
+}
+
+.container .card .content h2 {
+    position: absolute;
+    top:-40px;
+    right: 5px;
+    font-size: 6em;
+    color: #ffffff15;
+    pointer-events: none;
+    user-select: none;
+}
+.container .card .content h3 {
+
+    font-size: 1.8em;
+    color: white;
+    z-index: 1;
+    
+}
+
+.container .card .content p {
+    font-size: 1em;
+    color: #fff;
+    font-weight: 300;
+}
+::selection {
+    background: var(--highlight);
+}
+
+
+.container .card .content a {
+    position: relative;
+    display: inline-block;
+    padding: 8px 20px;
+    margin-top: 15px;
+    background: #fff;
+    color:#292929;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: 550;
+    user-select: none;
+    box-shadow: 0 5px 15px 2px #00000057;
+    transition: all 200ms ease;
+}
+
+.container .card .content a:hover {
+    background-color: #ff6e06;
+    padding: 10px 22px;
+    color: #fff ;
+    transition: all 200ms ease;
+}
+
+.splash {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.414);
+    backdrop-filter: blur(5px);
+    z-index: 200;
+    color: white;
+    text-align: center;
+    line-height: 90vh;
+}
+.splash.display-none {
+    position: fixed;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: #000;
+    z-index: -10;
+    color: white;
+    text-align: center;
+    line-height: 90vh;
+    transition: all .5s;
+}
+
+@keyframes fadeIn {
+    to{
+        opacity: 1;
+    }
+}
+
+.fade-in{
+    opacity: 0;
+    animation: fadeIn 0.5s ease-in forwards;
+}
